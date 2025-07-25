@@ -30,12 +30,21 @@ A lightweight and powerful Firefox browser extension to clear specific types of 
 
 1. Download or clone this repo  
    👉 [GitHub](https://github.com/Shasika/clear-site-data)
-2. Open Firefox and visit:  
-   `about:debugging#/runtime/this-firefox`
-3. Click **"Load Temporary Add-on"**
-4. Select the **`manifest.json`** file from the extracted folder
 
-> ✅ Manifest V3 supported (no background service worker required)
+2. Switch to the Firefox-compatible branch:
+
+   ```bash
+   git checkout firefox
+   ```
+
+3. Open Firefox and visit:  
+   `about:debugging#/runtime/this-firefox`
+
+4. Click **"Load Temporary Add-on"**
+
+5. Select the **`manifest.json`** file from the extracted folder
+
+> ✅ Fully Manifest V3 compatible — no background worker required
 
 ---
 
