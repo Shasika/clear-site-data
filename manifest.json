@@ -1,0 +1,24 @@
+{
+  "name": "Clear Site Data",
+  "description": "One-click tool to clear cookies, storage, cache, and more from the current site.",
+  "version": "1.2",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon.png"
+    }
+  },
+  "permissions": [
+    "storage",
+    "cookies",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
