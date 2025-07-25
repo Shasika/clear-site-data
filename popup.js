@@ -57,7 +57,17 @@ document.getElementById("clearForm").addEventListener("submit", async (e) => {
   });
 
   if (options.cookies) {
-    chrome.runtime.sendMessage({ action: "clearCookies", hostname: options.hostname });
+    chrome.cookies.getAll({ domain: options.hostname }, (cookies) => {
+      cookies.forEach((cookie) => {
+        const protocol = cookie.secure ? "https:" : "http:";
+        const cookieUrl = `${protocol}//${cookie.domain.replace(/^\./, '')}${cookie.path}`;
+        chrome.cookies.remove({
+          url: cookieUrl,
+          name: cookie.name,
+          storeId: cookie.storeId
+        });
+      });
+    });
   }
 
   setTimeout(() => {
